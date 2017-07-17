@@ -13,12 +13,13 @@ class LinksController < ApplicationController
     user = current_user
     link = user.links.new(link_params)
     if link.save
-      flash.now[:success] = "Link created successfully"
       render partial: 'link', locals: {link: link}, layout: false
+      flash.now[:success] = "Link created successfully"
       # redirect_to root_path
     else
-      flash.now[:error] = 'Link not created'
+      # format.json { render :json => { :error => link.errors.full_messages }, :status => 422 }
       render root_path
+      flash.now[:error] = 'Link not created'
       # redirect_to root_path
     end
   end

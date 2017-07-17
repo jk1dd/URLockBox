@@ -14,6 +14,7 @@ function postLink () {
     data: linkData
   }).done(function(newLink) {
     $('.links').prepend(newLink)
+    // $("body").prepend("<%=j flash.now[:success] %>");
     $('#link_url').val(""),
     $('#link_title').val("")
   })

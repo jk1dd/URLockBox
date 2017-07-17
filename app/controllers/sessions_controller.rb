@@ -1,0 +1,24 @@
+class SessionsController < ApplicationController
+  def new
+    # binding.pry
+  end
+
+  def create
+    # binding.pry
+    user = User.find_by(email: params[:email])
+    if user && user.authenticate(params[:password])
+      flash[:success] = "Login successful"
+      session[:user_id] = user.id
+      # redirect_to user_path(user)
+      redirect_to root_path
+    else
+      flash[:failure] = "Login failed"
+      redirect_to login_path
+    end
+  end
+
+  def destroy
+    reset_session
+    redirect_to root_path
+  end
+end

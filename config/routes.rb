@@ -1,7 +1,4 @@
 Rails.application.routes.draw do
-  get 'sessions/new'
-
-  get 'sessions/create'
 
   root to: "links#index"
 
@@ -9,6 +6,8 @@ Rails.application.routes.draw do
 
   get '/login', to: 'sessions#new'
   get '/signup', to: 'users#new'
+
+  resources :users
 
   namespace :api do
     namespace :v1 do

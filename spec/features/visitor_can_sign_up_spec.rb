@@ -11,18 +11,19 @@ describe 'visitor can sign up' do
     click_on("Sign up here")
 
     expect(current_path).to eq(new_user_path)
+    expect(page).to have_content("Sign Up")
   end
 
-  xit 'lets a visitor sign up with correct details' do
+  it 'lets a visitor sign up with correct details' do
     visit root_path
 
     click_on("Sign up here")
 
     expect(current_path).to eq(new_user_path)
-
+# save_and_open_page
     fill_in "Email", with: 'ah@ah.com'
     fill_in 'Password', with: 'puppies'
-    fill_in 'Password Confirmation', with: puppies
+    fill_in 'Password confirmation', with: 'puppies'
     click_on("Submit")
 
     expect(current_path).to eq(root_path)

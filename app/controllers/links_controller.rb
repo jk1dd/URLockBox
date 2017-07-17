@@ -11,16 +11,15 @@ class LinksController < ApplicationController
 
   def create
     user = current_user
-    # binding.pry
     link = user.links.new(link_params)
     if link.save
-      flash[:success] = "Link created successfully"
-      # render root_path
-      redirect_to root_path
+      flash.now[:success] = "Link created successfully"
+      render partial: 'link', locals: {link: link}, layout: false
+      # redirect_to root_path
     else
-      flash[:notice] = 'Link not created'
-      # render root_path
-      redirect_to root_path
+      flash.now[:error] = 'Link not created'
+      render root_path
+      # redirect_to root_path
     end
   end
 

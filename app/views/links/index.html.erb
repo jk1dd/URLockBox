@@ -1,7 +1,7 @@
 <h1>Your Links</h1>
 
 <div class="add-link">
-  <%= form_for @link do |f| %>
+  <%= form_for @link, :html => {:id => "new-link"} do |f| %>
     <%= f.url_field :url %>
     <%= f.label :url, 'URL' %>
 
@@ -14,10 +14,11 @@
 
 <div class="links">
   <p><% @links.each do |link| %></p>
-    <p>URL: <%= link.url %></p>
-    <p>Title: <%= link.title %></p>
-    <p>Read?: <%= link.read %></p>
-    <%= link_to "Edit", edit_link_path(link) %>
+  <%= render partial: 'link', locals: {link: link} %>
+    <!-- <p>URL: <%#= link.url %></p>
+    <p>Title: <%#= link.title %></p>
+    <p class='read-status'>Read?: <%#= link.read %></p>
+    <%#= link_to "Edit", edit_link_path(link) %> -->
   <% end %>
 </div>
 

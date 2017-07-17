@@ -12,6 +12,14 @@
   <% end %>
 </div>
 
+<div class="links">
+  <p><% @links.each do |link| %></p>
+    <p>URL: <%= link.url %></p>
+    <p>Title: <%= link.title %></p>
+    <p>Read?: <%= link.read %></p>
+  <% end %>
+</div>
+
 <div class="signout">
   <%= link_to "Sign Out", logout_path, method: 'delete' %>
 </div>

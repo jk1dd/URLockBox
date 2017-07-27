@@ -1,5 +1,8 @@
 $( document ).ready(function(){
   $("#filter-input").on("keyup", filterLinks)
+  $("#filter-read").on("click", filterRead)
+  $("#filter-unread").on("click", filterUnread)
+
 })
 
 function filterLinks() {
@@ -14,4 +17,26 @@ function filterLinks() {
     links[i].style.display = match ?  "" : "none"
   }
 
+}
+
+function filterRead() {
+  var links = document.getElementsByClassName('link')
+
+  var i;
+  for(i = 0; i < links.length; i++) {
+    var readStatus = links[i].children[2].textContent.split(' ')[1]
+    var match = readStatus.toLowerCase().indexOf('true') > -1
+    links[i].style.display = match ? "" : "none"
+  }
+}
+
+function filterUnread() {
+  var links = document.getElementsByClassName('link')
+
+  var i;
+  for(i = 0; i < links.length; i++) {
+    var readStatus = links[i].children[2].textContent.split(' ')[1]
+    var match = readStatus.toLowerCase().indexOf('false') > -1
+    links[i].style.display = match ? "" : "none"
+  }
 }

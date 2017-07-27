@@ -32,8 +32,19 @@ function bindSubmitListenerAndPostLink() {
   })
 }
 
+// function checkHotReadStuff() {
+//   $.ajax({
+//     type: 'GET',
+//     url: 'http://localhost:3001',
+//     success: function(hotLinks) {
+//       console.log(hotLinks)
+//     }
+//   })
+// }
+
 
 
 $(document).ready(function() {
   bindSubmitListenerAndPostLink()
+  // checkHotReadStuff()
 })

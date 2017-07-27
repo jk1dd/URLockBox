@@ -1,12 +1,16 @@
 $( document ).ready(function(){
   $("body").on("click", ".mark-as-read", markAsRead)
   $("body").on("click", ".mark-as-read", sendHotRead)
+
+  $.ajax({
+    type: "GET",
+    url: "http://localhost:3001/api/v1/links",
+    success: function(data) {}
+  }).done(updateHotReads)
 })
 
 function sendHotRead (e) {
   e.preventDefault();
-  // debugger
-  // var linkId = this.parentElement.getAttribute('data-link-id')
   var linkUrl = this.parentElement.firstElementChild.textContent.split(' ')[1]
   $.ajax({
     type: "POST",
@@ -16,9 +20,25 @@ function sendHotRead (e) {
     success: function(data) {
       console.log(data)
     }
-  })
+  }).done(updateHotReads)
   // https://fathomless-basin-91014.herokuapp.com/
 
+}
+
+function updateHotReads(hotLinksArray) {
+  var linkList = hotLinksArray.map(function(link) {return link.url})
+  $('.link').each(function(index, link){
+    var cardUrl = link.firstElementChild.innerText.split(' ')[1]
+    if (linkList.includes(cardUrl)) {
+      $(link).find('.hot-stuff').remove()
+      $(link).find('.title').prepend('<h4 class="hot-stuff">Hott</h4>')
+    } else {
+      $(link).find('.hot-stuff').remove()
+    }
+    if (linkList[0] === cardUrl) {
+      $(link).find('.hot-stuff').text('Top!')
+    }
+  })
 }
 
 function markAsRead(e) {

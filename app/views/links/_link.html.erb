@@ -1,4 +1,12 @@
-<p>URL: <%= link.url %></p>
-<p>Title: <%= link.title %></p>
-<p class='read-status'>Read?: <%= link.read %></p>
-<%= link_to "Edit", edit_link_path(link) %>
+
+<div data-link-id="<%= link.id %>" class="<%= my_class %> link">
+  <p>URL: <%= link.url %></p>
+  <p>Title: <%= link.title %></p>
+  <p class='read-status'>Read?: <%= link.read %></p>
+  <% if link.read %>
+  <a href="#" class="mark-as-unread">Mark as Unread</a>
+  <% else %>
+  <a href="#" class="mark-as-read">Mark as Read</a>
+  <% end %>
+  <%= link_to "Edit", edit_link_path(link) %>
+</div>

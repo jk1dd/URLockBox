@@ -13,3 +13,7 @@
  *= require_tree .
  *= require_self
  */
+.is-read {
+  text-decoration: line-through;
+  color: red;
+}

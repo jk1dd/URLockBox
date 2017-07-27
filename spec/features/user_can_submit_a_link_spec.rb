@@ -12,7 +12,6 @@ describe 'user can submit a link', :js => :true do
     fill_in "Title", with: 'Google'
     click_on "Submit"
 
-    expect(page).to have_content('Link created successfully')
     within('.links') do
       expect(page).to have_content("URL: https://www.google.com/")
       expect(page).to have_content('Title: Google')
@@ -30,9 +29,7 @@ describe 'user can submit a link', :js => :true do
     fill_in "URL", with: 'https://www.google.com/'
     click_on "Submit"
 
-    # fix flash messages
-    # expect(page).to have_content('Link title missing')
-    expect(page).to have_content('Link not created')
+    expect(page).to have_content("Title can't be blank")
   end
 
   it 'does not allow creation with invalid url' do
@@ -46,9 +43,7 @@ describe 'user can submit a link', :js => :true do
     fill_in "Title", with: 'Google'
     click_on "Submit"
 
-    # what to assert here
-    # expect(page).to have_content('Invalid URL')
-    # expect(page).to have_content('Link not created')
+    expect(page).to have_content('Url is not a valid')
     expect(current_path).to eq(root_path)
   end
 end

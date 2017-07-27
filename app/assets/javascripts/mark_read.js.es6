@@ -1,9 +1,9 @@
 $( document ).ready(function(){
   $("body").on("click", ".mark-as-read", markAsRead)
-  $("body").on("click", ".mark-as-read", hotRead)
+  $("body").on("click", ".mark-as-read", sendHotRead)
 })
 
-function hotRead (e) {
+function sendHotRead (e) {
   e.preventDefault();
   // debugger
   // var linkId = this.parentElement.getAttribute('data-link-id')
@@ -13,7 +13,9 @@ function hotRead (e) {
     // url: "https://fathomless-basin-91014.herokuapp.com/api/v1/links",
     url: "http://localhost:3001/api/v1/links",
     data: {link: {url: linkUrl}},
-    success: function() {}
+    success: function(data) {
+      console.log(data)
+    }
   })
   // https://fathomless-basin-91014.herokuapp.com/
 

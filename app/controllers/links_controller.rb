@@ -5,7 +5,7 @@ class LinksController < ApplicationController
       redirect_to login_path
     else
       @link = Link.new
-      @links = current_user.links.all
+      @links = current_user.links.reverse
     end
   end
 
@@ -14,13 +14,8 @@ class LinksController < ApplicationController
     link = user.links.new(link_params)
     if link.save
       render partial: 'link', locals: {link: link}, layout: false
-      flash.now[:success] = "Link created successfully"
-      # redirect_to root_path
     else
-      # format.json { render :json => { :error => link.errors.full_messages }, :status => 422 }
-      render root_path
-      flash.now[:error] = 'Link not created'
-      # redirect_to root_path
+      render json: {errors: link.errors.full_messages}
     end
   end
 
@@ -29,16 +24,13 @@ class LinksController < ApplicationController
   end
 
   def update
-    # binding.pry
     link = Link.find(params[:id])
     link.update(link_params)
     if link.save
       flash[:success] = "Link updated successfully"
-      # render root_path
       redirect_to root_path
     else
       flash[:notice] = 'Link not updated'
-      # render root_path
       redirect_to edit_link_path(link)
     end
   end

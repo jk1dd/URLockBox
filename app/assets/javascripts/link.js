@@ -11,21 +11,23 @@ function postLink () {
   $.ajax({
     type: 'POST',
     url: '/links',
-    data: linkData
+    data: linkData,
+    success: function(data) {
+      if(data.errors){
+        $('#errors').append(data.errors)
+      }
+    }
   }).done(function(newLink) {
     $('.links').prepend(newLink)
-    // $("body").prepend("<%=j flash.now[:success] %>");
     $('#link_url').val(""),
     $('#link_title').val("")
   })
 }
 
-
-
-
 function bindSubmitListenerAndPostLink() {
   $("#new-link input[type='submit']").on("click", function(event) {
     event.preventDefault()
+    $('#errors').empty()
     postLink()
   })
 }

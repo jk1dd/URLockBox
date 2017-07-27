@@ -9,16 +9,6 @@ class LinksController < ApplicationController
     end
   end
 
-  def create
-    user = current_user
-    link = user.links.new(link_params)
-    if link.save
-      render partial: 'link', locals: {link: link}, layout: false
-    else
-      render json: {errors: link.errors.full_messages}
-    end
-  end
-
   def edit
     @link = Link.find(params[:id])
   end

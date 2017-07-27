@@ -1,5 +1,15 @@
 class Api::V1::LinksController < ApplicationController
 
+  def create
+    user = current_user
+    link = user.links.new(link_params)
+    if link.save
+      render partial: 'links/link', locals: {link: link}, layout: false
+    else
+      render json: {errors: link.errors.full_messages}
+    end
+  end
+
   def update
     @link = Link.find(params[:id])
     if @link.update_attributes(link_params)
@@ -11,7 +21,10 @@ class Api::V1::LinksController < ApplicationController
 
   private
 
+  # def link_params
+  #   params.permit(:read)
+  # end
   def link_params
-    params.permit(:read)
+    params.require(:link).permit(:url, :title, :read)
   end
 end

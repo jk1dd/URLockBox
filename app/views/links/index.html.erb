@@ -5,7 +5,7 @@
 </div>
 
 <div class="add-link">
-  <%= form_for @link, :html => {:id => "new-link"} do |f| %>
+  <%= form_for @link, url: api_v1_links_path, :html => {:id => "new-link"} do |f| %>
     <%= f.url_field :url %>
     <%= f.label :url, 'URL' %>
 

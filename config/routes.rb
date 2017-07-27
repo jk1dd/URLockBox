@@ -2,13 +2,13 @@ Rails.application.routes.draw do
 
   root to: "links#index"
 
-  resources :links
+  resources :links, only: [:edit, :update]
 
   resources :users, only: [:new, :create]
 
   namespace :api do
     namespace :v1 do
-      resources :links, only: [:update]
+      resources :links, only: [:update, :create]
     end
   end
 

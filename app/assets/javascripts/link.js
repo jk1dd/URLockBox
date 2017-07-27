@@ -10,7 +10,7 @@ function postLink () {
 
   $.ajax({
     type: 'POST',
-    url: '/links',
+    url: '/api/v1/links',
     data: linkData,
     success: function(data) {
       if(data.errors){

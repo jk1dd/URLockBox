@@ -16,9 +16,15 @@
   <% end %>
 </div>
 
+<hr/>
+
 <div class="links">
   <p><% @links.each do |link| %></p>
-  <%= render partial: 'link', locals: {link: link} %>
+    <% if link.read %>
+      <%= render partial: 'link', locals: {link: link, my_class: 'is-read'} %>
+    <% else %>
+      <%= render partial: 'link', locals: {link: link, my_class: ''} %>
+    <% end %>
   <% end %>
 </div>
 

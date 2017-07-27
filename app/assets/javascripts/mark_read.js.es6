@@ -5,8 +5,7 @@ $( document ).ready(function(){
 function markAsRead(e) {
   e.preventDefault();
 
-  var $link = $(this).parents('.link');
-  var linkId = $link.data('link-id');
+  var linkId = this.parentElement.getAttribute('data-link-id')
 
   $.ajax({
     type: "PATCH",
@@ -17,7 +16,7 @@ function markAsRead(e) {
 }
 
 function updateLinkStatus(link) {
-  $(`.link[data-link-id=${link.id}]`).find(".read-status").text(link.read);
+  $(`.links div[data-link-id=${link.id}]`).find('.read-status').text("Read?: true");
 }
 
 function displayFailure(failureData){

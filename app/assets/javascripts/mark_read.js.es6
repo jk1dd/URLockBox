@@ -4,7 +4,7 @@ $( document ).ready(function(){
 
   $.ajax({
     type: "GET",
-    url: "http://localhost:3001/api/v1/links",
+    url: "https://fathomless-basin-91014.herokuapp.com/api/v1/links",
     success: function(data) {}
   }).done(updateHotReads)
 })
@@ -14,14 +14,12 @@ function sendHotRead (e) {
   var linkUrl = this.parentElement.firstElementChild.textContent.split(' ')[1]
   $.ajax({
     type: "POST",
-    // url: "https://fathomless-basin-91014.herokuapp.com/api/v1/links",
-    url: "http://localhost:3001/api/v1/links",
+    url: "https://fathomless-basin-91014.herokuapp.com/api/v1/links",
     data: {link: {url: linkUrl}},
     success: function(data) {
       console.log(data)
     }
   }).done(updateHotReads)
-  // https://fathomless-basin-91014.herokuapp.com/
 
 }
 

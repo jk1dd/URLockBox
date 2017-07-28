@@ -1,27 +1,26 @@
 # URLockBox
 
-## Final Assessment
+This app is final assessment for Mod 4 at Turing School in Denver. The service for this app, called Hot reads, can be found on [GitHub](https://github.com/jk1dd/hot_reads) or live on [Heroku](https://fathomless-basin-91014.herokuapp.com/). It is build in Rails 5.0, tested with [Rspec](https://github.com/rspec/rspec-rails) and [Selenium](https://rubygems.org/gems/selenium-webdriver/versions/2.48.1).
 
-The URLockbox is a starter app for the final assessment for module 4 of the backend engineering program at Turing School of Software and Design.
+A user can add links to store for later, mark links as read or unread, search through her links, and also toggle links by read or unread.
 
-Be sure to get familiar with what is already done, and what is not. No features are complete, but there is some set up done for several features. Use commit history if that helps.
+## Getting Started
 
-### Testing your JS with Selenium
+To get the project up and running, simply:
+```
+git clone https://github.com/jk1dd/URLockBox.git
+cd URLockBox
+bundle
+rake db:create
+rake db:migrate
+```
+and visit `localhost:3000` to see the app in development
 
-The app has the `selenium-webdriver` gem listed in the `Gemfile` and setup in the `rails_helper.rb`
 
-#### Setup
+## Authors
 
-Everything will be installed with Bundle.
+Jonathan Kidd
 
-You will need to download version 46 of Firefox [here](https://www.softexia.com/windows/web-browsers/firefox-46). If you do have it, make sure it is on version 46. Selenium does not work with all versions of Firefox, so make sure that you are using Firefox 46 or else it will potentially cause you problems.
+## License
 
-If you already have Firefox and it's on a version more recent than 46, the easiest way to downgrade is to uninstall Firefox then install version 46.
-
-#### Use
-
-You can then write capybara feature tests and add `js: true` tag if you'd like your test to use the Selenium WebDriver rather than the default WebDriver.  Your tests will execute and recognize your JavaScript.
-
-If you're having problems troubleshooting asynchronous actions (like DOM changes after an AJAX request), [peruse this section of Capybara's docs](https://github.com/teamcapybara/capybara#asynchronous-javascript-ajax-and-friends)
-
-It is highly suggested that you also check out the Capybara docs and and the section on [selenium-webdriver](https://github.com/teamcapybara/capybara#selenium).
+This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details

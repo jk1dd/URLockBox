@@ -1,6 +1,6 @@
 # URLockBox
 
-This app is final assessment for Mod 4 at Turing School in Denver. The service for this app, called Hot reads, can be found on [GitHub](https://github.com/jk1dd/hot_reads) or live on [Heroku](https://fathomless-basin-91014.herokuapp.com/). It is build in Rails 5.0, tested with [Rspec](https://github.com/rspec/rspec-rails) and [Selenium](https://rubygems.org/gems/selenium-webdriver/versions/2.48.1).
+This app is the final assessment for Mod 4 at Turing School in Denver, and can be found on [GitHub](https://github.com/jk1dd/URLockBox) or live on [Heroku](https://stark-meadow-35466.herokuapp.com/). There is an accompanying service application, called Hot Reads, which can be found on [GitHub here](https://github.com/jk1dd/hot_reads), or [live on Heroku](https://fathomless-basin-91014.herokuapp.com/). It is built in Rails 5.0, tested with [Rspec](https://github.com/rspec/rspec-rails) and [Selenium](https://rubygems.org/gems/selenium-webdriver/versions/2.48.1).
 
 A user can add links to store for later, mark links as read or unread, search through her links, and also toggle links by read or unread.
 

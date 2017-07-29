@@ -18,14 +18,33 @@
    background-color:#D3D3D3;
  }
 
+ .center-this {
+   display: grid;
+ }
+
 .is-read {
   text-decoration: line-through;
   color: red;
 }
 
 div.link {
+  display: flow-root;
   border-style: solid;
 }
+
+// div.link {
+//   display: grid;
+//   width: 100%;
+//   max-width: 300px;
+//   margin: 0 auto;
+//
+//   grid-template-columns: repeat(auto-fill, minmax(9em, 1fr));
+//
+//   grid-gap: 20px;
+//   border-style: solid;
+//
+// }
+
 
 #new-link {
   display: grid;

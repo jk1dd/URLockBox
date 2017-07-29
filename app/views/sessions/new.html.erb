@@ -1,7 +1,8 @@
-<h1>Login</h1>
+<div class="center-this">
+  <h1>Login</h1>
 
-<div class="sign-up">
-  <%= form_tag '/login' do %>
+  <div class="sign-up">
+    <%= form_tag '/login' do %>
 
     <%= label_tag :email, 'Email' %>
     <%= email_field_tag :email %>
@@ -9,15 +10,13 @@
     <%= label_tag :password, 'Password' %>
     <%= password_field_tag :password %>
 
-    <%#= label_tag :password_confirmation, 'Password confirmation' %>
-    <%#= password_field_tag :password_confirmation %>
-
     <%= submit_tag 'Login' %>
 
-  <% end %>
-</div>
+    <% end %>
+  </div>
 
-<div class="link">
-  <p>New User? <%= link_to "Sign up here.", new_user_path %></p>
+  <div class="new-signup">
+    <p>New User? <%= link_to "Sign up here.", new_user_path %></p>
 
+  </div>
 </div>

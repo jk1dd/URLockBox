@@ -12,5 +12,4 @@ RSpec.describe Link, type: :model do
     expect(link).to respond_to(:user)
   end
 
-
 end

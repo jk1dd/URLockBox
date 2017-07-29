@@ -24,7 +24,6 @@ describe 'visitor can sign up' do
     fill_in 'Password', with: 'puppies'
     fill_in 'Password confirmation', with: 'puppies'
     click_on("Submit")
-    # save_and_open_page
 
     expect(current_path).to eq(root_path)
     expect(page).to have_content("URL")
@@ -57,8 +56,7 @@ describe 'visitor can sign up' do
     fill_in 'Password confirmation', with: "puppies"
     click_on('Submit')
 
-    expect(page).to have_content('Password cannot be blank')
-    # expect(page).to have_content('Password confirmation does not match')
+    expect(page).to have_content("Password can't be blank")
     expect(current_path).to eq(new_user_path)
   end
 
@@ -74,7 +72,7 @@ describe 'visitor can sign up' do
     fill_in 'Password confirmation', with: 'apples'
     click_on('Submit')
 
-    expect(page).to have_content('Password confirmation does not match')
+    expect(page).to have_content("Password confirmation doesn't match")
     expect(current_path).to eq(new_user_path)
   end
 
@@ -89,7 +87,7 @@ describe 'visitor can sign up' do
     fill_in 'Password', with: 'puppies'
     click_on('Submit')
 
-    expect(page).to have_content('Password confirmation cannot be blank')
+    expect(page).to have_content("Password confirmation doesn't match Password, Password confirmation can't be blank")
     expect(current_path).to eq(new_user_path)
   end
 end

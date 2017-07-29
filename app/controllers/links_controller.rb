@@ -1,12 +1,15 @@
 class LinksController < ApplicationController
-
+  before_action :authorize
   def index
-    if !current_user
-      redirect_to login_path
-    else
-      @link = Link.new
-      @links = current_user.links.reverse
-    end
+
+    @link = Link.new
+    @links = current_user.links.reverse
+    # if !current_user
+    #   redirect_to login_path
+    # else
+    #   @link = Link.new
+    #   @links = current_user.links.reverse
+    # end
   end
 
   def edit
@@ -20,7 +23,7 @@ class LinksController < ApplicationController
       flash[:success] = "Link updated successfully"
       redirect_to root_path
     else
-      flash[:notice] = 'Link not updated'
+      flash[:notice] = link.errors.full_messages.join(', ')
       redirect_to edit_link_path(link)
     end
   end

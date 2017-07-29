@@ -13,11 +13,33 @@
  *= require_tree .
  *= require_self
  */
+ body {
+   font-family: "Courier New", Courier, monospace;
+   background-color:#D3D3D3;
+ }
+
+ .center-this {
+   display: grid;
+ }
+
 .is-read {
   text-decoration: line-through;
   color: red;
 }
 
 div.link {
+  display: flow-root;
   border-style: solid;
+}
+
+#new-link {
+  display: grid;
+  width: 100px;
+  text-align: center;
+}
+
+.sign-up form {
+  display: grid;
+  width: 100px;
+  text-align: center;
 }

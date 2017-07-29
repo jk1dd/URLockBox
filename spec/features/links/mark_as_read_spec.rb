@@ -1,6 +1,6 @@
 require "rails_helper"
 
-RSpec.xdescribe "can mark links as read", :js => :true do
+RSpec.describe "can mark links as read", :js => :true do
   scenario "Mark a link as read" do
     user = User.create(email: "a@a.com", password: "123", password_confirmation: "123")
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)

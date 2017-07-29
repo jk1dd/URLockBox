@@ -48,9 +48,7 @@ describe 'user can edit a link' do
     fill_in "Title", with: ''
     click_on "Submit"
 
-    # fix flash messages
-    # expect(page).to have_content('Link title missing')
-    expect(page).to have_content('Link not updated')
+    expect(page).to have_content("Title can't be blank")
     expect(current_path).to eq(edit_link_path(Link.last.id))
   end
 
@@ -72,9 +70,7 @@ describe 'user can edit a link' do
     fill_in "Title", with: 'Google Docs'
     click_on "Submit"
 
-    # fix flash messages
-    # expect(page).to have_content('Invalid URL')
-    expect(page).to have_content('Link not updated')
+    expect(page).to have_content('Url is not a valid URL')
     expect(current_path).to eq(edit_link_path(Link.last.id))
   end
 end

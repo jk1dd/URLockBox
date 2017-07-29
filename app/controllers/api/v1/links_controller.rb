@@ -1,4 +1,5 @@
 class Api::V1::LinksController < ApplicationController
+  before_action :authorize
 
   def create
     user = current_user
@@ -22,12 +23,6 @@ class Api::V1::LinksController < ApplicationController
 
   private
 
-  # def link_params
-  #   params.permit(:read)
-  # end
-  # def link_params
-  #   params.require(:link).permit(:url, :title, :read)
-  # end
   def link_params
     params.require(:link).permit(:url, :title, :read)
   end
